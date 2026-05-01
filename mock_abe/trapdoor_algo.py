@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import random
 
-from .core import MOD, hash_to_scalar
+from .core import MOD, g1_from_exp, hash_to_scalar
 
 
 def build_trapdoor(query_keywords: list[str], rng: random.Random | None = None) -> dict:
@@ -16,6 +16,13 @@ def build_trapdoor(query_keywords: list[str], rng: random.Random | None = None) 
     rng = rng or random.Random()
     phi_prime = sum(hash_to_scalar("H2", keyword) for keyword in query_keywords) % MOD
     alpha = rng.randrange(1, MOD)
-    t1 = alpha % MOD
+    t1_exp = alpha % MOD
     t2 = (alpha * phi_prime) % MOD
-    return {"Phi_prime": phi_prime, "alpha": alpha, "T1": t1, "T2": t2}
+    t1 = g1_from_exp(t1_exp)
+    return {
+        "Phi_prime": phi_prime,
+        "alpha": alpha,
+        "T1": t1,
+        "T1_exp": t1_exp,
+        "T2": t2,
+    }

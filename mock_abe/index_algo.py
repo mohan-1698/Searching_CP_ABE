@@ -2,7 +2,7 @@ from __future__ import annotations
 
 import random
 
-from .core import MOD, hash_to_scalar
+from .core import MOD, g1_from_exp, gt_from_exp, hash_to_scalar
 
 
 def build_index(keywords: list[str], rng: random.Random | None = None) -> dict:
@@ -16,6 +16,15 @@ def build_index(keywords: list[str], rng: random.Random | None = None) -> dict:
     rng = rng or random.Random()
     phi = sum(hash_to_scalar("H2", keyword) for keyword in keywords) % MOD
     beta = rng.randrange(1, MOD)
-    i1 = (phi * (1 + beta)) % MOD
-    i2 = beta % MOD
-    return {"Phi": phi, "beta": beta, "I1": i1, "I2": i2}
+    i1_exp = (phi * (1 + beta)) % MOD
+    i2_exp = beta % MOD
+    i1 = g1_from_exp(i1_exp)
+    i2 = gt_from_exp(i2_exp)
+    return {
+        "Phi": phi,
+        "beta": beta,
+        "I1": i1,
+        "I1_exp": i1_exp,
+        "I2": i2,
+        "I2_exp": i2_exp,
+    }

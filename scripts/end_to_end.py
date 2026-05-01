@@ -41,14 +41,11 @@ def run_flow(
         return base64.b64encode(x).decode("ascii") if isinstance(x, (bytes, bytearray)) else x
 
     ct_json = {
-        "r": ct["r"],
-        "s": ct["s"],
         "threshold": ct["threshold"],
         "shares": [[int(i), int(v)] for (i, v) in ct.get("shares", [])],
         "lambda_values": [int(x) for x in ct.get("lambda_values", [])],
         "C0": int(ct.get("C0")),
         "Z": int(ct.get("Z")),
-        "symmetric_key": b64(ct.get("symmetric_key")),
         "ciphertext": b64(ct.get("ciphertext")),
         "tau": b64(ct.get("tau")),
         "rows": [

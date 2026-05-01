@@ -7,6 +7,8 @@ from dataclasses import dataclass
 from typing import Sequence
 
 MOD = 2**61 - 1
+G1_GEN = 5
+GT_GEN = 7
 
 
 def normalize_text(value: str, target_length: int) -> bytes:
@@ -64,6 +66,14 @@ def derive_key_bytes(label: str, *parts: object, length: int = 32) -> bytes:
 
 def pairing_exp(a: int, b: int) -> int:
     return (a * b) % MOD
+
+
+def g1_from_exp(exp: int) -> int:
+    return pow(G1_GEN, exp % MOD, MOD)
+
+
+def gt_from_exp(exp: int) -> int:
+    return pow(GT_GEN, exp % MOD, MOD)
 
 
 def polynomial_share(secret: int, n: int, threshold: int, rng: random.Random) -> list[tuple[int, int]]:

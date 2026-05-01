@@ -1,6 +1,4 @@
 {
-  "r": 2148549222378519144,
-  "s": 2148549222378519144,
   "threshold": 2,
   "shares": [
     [
@@ -16,25 +14,26 @@
     465848386019656894,
     1088990558874488595
   ],
-  "C0": 2148549222378519144,
-  "Z": 611263596987600303,
-  "symmetric_key": "prxv+xDymamYrLaGOMeON2qMzJp9WoNpp5ySpE8zubw=",
-  "ciphertext": "8tQGiDCb6on5jMXrWaviFxntoeoRP6MPzvD3hClcy5zS1ArbdZz9hOzDm+NWo65aBe+nug4/4hvE9PPGI1aZ2cjfHYJghvDG9ozS41WooD0j+Oz5EjT3CM7y4YQuE9/Z0ZwDkn6X6on3ypbyXb/6Fxnj7O4VP6MNwvH9hCxS15zD0gyJaYLtifnC0qZcou1FE/y4uh8j9wzUspiuA1rX2YaNVdt4l/XF96b671airgVQrL//HCjgAcb+/sFvVtff1MUfj3md94n8ydvpMovnWQ+s/6BdP+0NrQ==",
-  "tau": "uAo334iyS9dHVmDj5H0KMWvrJhaGoTHvn12IGbK8TZ4=",
+  "C0": 1768400454134884360,
+  "Z": 1901662399091582298,
+  "ciphertext": "Uyzk0W1GnJQJbIxWMBdCOu+74ge/4DKupD2e+q1OCWNzLOiCKEGLmRwj0l4/Hw5387nkV6Dgc7quOZq4p0RbJmkn/9s9W4bbBmybXjwUABDVrq8UvOtmqaQ/iPqqAR0mcGThyyNKnJQHKt9PNANaOu+1rwO74DKsqDyU+qhAFWNiKu7QNF+blAkimxs1Hk1o5ar7V7H8Zq2+f/HQh0gVJid1t4IlSoPYB0azUj8eDiim+vwSsvdxoKwzl7/rRBUgdT391iRAgZQMKZJUWzdHdPn6vE3z4Hysxx2StK4BT3knDOjOIg+i2wAtkTE=",
+  "tau": "i71PIHdQ2kBN1of1kl6+m7jYVjQe5qAvlB2kO/8vxyo=",
   "rows": [
     {
       "attribute": "attr1",
       "lambda": 465848386019656894,
       "u": 1005874239278278982,
       "C_i1": 2040805330899906519,
-      "C_i2": 1005874239278278982
+      "C_i2": 1461492696575485713,
+      "C_i2_exp": 1005874239278278982
     },
     {
       "attribute": "attr2",
       "lambda": 1088990558874488595,
       "u": 860226660969242508,
       "C_i1": 1666558663609854556,
-      "C_i2": 860226660969242508
+      "C_i2": 1157815178894247418,
+      "C_i2_exp": 860226660969242508
     }
   ],
   "keywords": [

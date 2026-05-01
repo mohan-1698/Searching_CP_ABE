@@ -10,5 +10,7 @@ def partial_decrypt(ciphertext: dict, secret_key: dict) -> dict:
     In exponent space: P = C0 * K_trans mod MOD
     """
 
-    p_exp = pairing_exp(ciphertext["C0"], secret_key["K_trans"])
+    c0_exp = ciphertext.get("C0_exp", ciphertext["C0"])
+    k_trans_exp = secret_key.get("K_trans_exp", secret_key["K_trans"])
+    p_exp = pairing_exp(c0_exp, k_trans_exp)
     return {"P": p_exp}
