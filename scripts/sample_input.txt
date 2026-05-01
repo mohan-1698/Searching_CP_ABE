@@ -1,0 +1,6 @@
+This is a small sample file for the end-to-end mock searchable encryption demo.
+It contains a few lines of text so the demo can encrypt and decrypt bytes.
+
+Line 1: hello
+Line 2: searchable encryption demo
+Line 3: end
