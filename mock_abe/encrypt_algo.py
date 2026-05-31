@@ -30,7 +30,7 @@ def encrypt(
     C0 = g^r
     Z = e(g,g)^(gamma r)
     K_sym = H3(C0 || Z)
-    tau = H4(K_sym || C_file || Z)
+    tau = H4(K_sym || C_file )
     """
 
     rng = rng or random.Random()
@@ -47,7 +47,7 @@ def encrypt(
     z = gt_from_exp(z_exp)
     symmetric_key = derive_key_bytes("H3", c0, z, length=32)
     ciphertext_bytes = xor_bytes(message, symmetric_key)
-    tau = derive_key_bytes("H4", symmetric_key, ciphertext_bytes, z, length=32)
+    tau = derive_key_bytes("H4", symmetric_key, ciphertext_bytes, length=32)
 
     attribute_names = build_attribute_names(num_attributes)
     rows = []
