@@ -333,6 +333,13 @@ def run_benchmark(args: argparse.Namespace) -> dict:
     plot_line(keyword_series, ["trapdoor"], ["trapdoor stage"], "Trapdoor time vs keywords", "keywords", "time (seconds)", output_dir / "trapdoor_vs_time.png")
     plot_line(attr_series, ["total", "setup", "keygen", "encrypt", "index", "trapdoor", "search", "partial_decrypt", "final_decrypt"], ["total", "setup", "keygen", "encrypt", "index", "trapdoor", "search", "partial", "final"], "Sum of stages vs time", "attributes", "time (seconds)", output_dir / "sum_vs_time.png")
 
+    # Per-stage plots vs attributes (one file per stage)
+    stages = ["setup", "keygen", "encrypt", "index", "trapdoor", "search", "partial_decrypt", "final_decrypt"]
+    for stage in stages:
+        # human-friendly title and filename
+        nice = stage.replace("_", " ").title()
+        plot_line(attr_series, [stage], [stage], f"{nice} Time vs Attributes", "attributes", "time (seconds)", output_dir / f"time_vs_attributes_{stage}.png")
+
     rows = []
     for x, total, setup_t, keygen_t, encrypt_t, index_t, trapdoor_t, search_t, partial_t, final_t in zip(
         attr_series.x_values,
